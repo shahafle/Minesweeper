@@ -81,25 +81,54 @@ function costumMode() {
    document.querySelector('#costum-mines').style.display = 'inline-block';
 }
 
-function placeCostumMine(location) {
+function placeMine(location) {
    var currCell = gBoard[location.i][location.j];
    if (currCell.isMine) return;
    currCell.isMine = true;
    gMinesCoords.push(location);
-   gGame.minesPlaced++;
-   renderCell(location);
+}
+
+function showCostumMine(location) {
    var elCell = document.querySelector('#' + getIdName(location));
    elCell.classList.remove('hidden');
-   var costumHTML = gGame.minesPlaced + '/' + gLevel.MINES
+   var costumHTML = gGame.costumMinesPlaced + '/' + gLevel.MINES;
    document.querySelector('#costum-mines span').innerText = costumHTML;
-   if (gGame.minesPlaced === gLevel.MINES) {
-      setTimeout(() => {
-         for (var i = 0; i < gMinesCoords.length; i++) {
-            renderCell(gMinesCoords[i], true);
-            var elCell = document.querySelector('#' + getIdName(gMinesCoords[i]));
-            elCell.classList.add('hidden');
+}
+
+function hideCostumMines() {
+   setTimeout(() => {
+      for (var i = 0; i < gMinesCoords.length; i++) {
+         renderCell(gMinesCoords[i], true);
+         var elCell = document.querySelector('#' + getIdName(gMinesCoords[i]));
+         elCell.classList.add('hidden');
+      }
+      document.querySelector('#costum-mines').style.display = 'none';
+   }, 300);
+}
+
+function boom7Mode() {
+   restart();
+   gGame.boom7Mode = true;
+   var cellNth = 1;
+   var minesCount = 0;
+   for (var i = 0; i < gLevel.SIZE; i++) {
+      for (var j = 0; j < gLevel.SIZE; j++) {
+         if (is7(cellNth)) {
+            placeMine({ i, j });
+            minesCount++;
          }
-         document.querySelector('#costum-mines').style.display = 'none';
-      }, 300);
+         cellNth++;
+      }
    }
+   gLevel.MINES = minesCount;
+}
+
+function is7(num) {
+   // if (num === 14) debugger
+   if ((num % 7) === 0) return true;
+   var numStr = '' + num;
+   for (var i = 0; i < numStr.length; i++) {
+      if (numStr.charAt(i) === '7') return true;
+   }
+   return false;
 }

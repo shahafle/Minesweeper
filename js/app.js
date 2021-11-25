@@ -18,8 +18,9 @@ var gGame = {
    hintsLeft: 3,
    hintMode: false,
    costumMode: false,
-   minesPlaced: 0,
-   safeClicksLeft: 3
+   costumMinesPlaced: 0,
+   safeClicksLeft: 3,
+   boom7Mode: false
 }
 
 var gLevel = {
@@ -38,8 +39,9 @@ function initGame() {
       hintsLeft: 3,
       hintMode: false,
       costumMode: false,
-      minesPlaced: 0,
-      safeClicksLeft: 3
+      costumMinesPlaced: 0,
+      safeClicksLeft: 3,
+      boom7Mode: false
    }
    gMinesCoords = [];
    gFirstCoord = null;
@@ -56,7 +58,7 @@ function initGame() {
 }
 
 function start() {
-   if (!gGame.costumMode) placeMines(gBoard, gLevel.MINES);
+   if (!gGame.costumMode && !gGame.boom7Mode) placeMines(gBoard, gLevel.MINES);
    gBoard = setMinesNegsCount(gBoard);
    renderBoard(gBoard);
    updateHints();
@@ -88,8 +90,7 @@ function placeMines(board, minesNum) {
       var i = getRandomInt(0, gBoard.length);
       var j = getRandomInt(0, gBoard.length);
       if (i !== gFirstCoord.i && j !== gFirstCoord.j && !board[i][j].isMine) {
-         board[i][j].isMine = true;
-         gMinesCoords.push({ i, j });
+         placeMine({ i, j });
          count++;
       }
    }
@@ -155,9 +156,13 @@ function renderCell(location, toClearCell = false) {
 
 function cellClicked(elCell, i, j) {
    var currCell = gBoard[i][j];
-   // Costum mode click
-   if (gGame.costumMode && gGame.minesPlaced < gLevel.MINES) {
-      placeCostumMine({ i, j });
+   // Costum mode click to place a mine
+   if (gGame.costumMode && gGame.costumMinesPlaced < gLevel.MINES) {
+      placeMine({ i, j });
+      gGame.costumMinesPlaced++;
+      showCostumMine({ i, j });
+      renderCell({ i, j });
+      if (gGame.costumMinesPlaced === gLevel.MINES) hideCostumMines();
       return;
    }
 
@@ -271,7 +276,8 @@ function checkGameOver(isLose) {
 
 function restart() {
    clearInterval(gTimerInterval);
-   initGame();
+   if (!gGame.boom7mode)
+      initGame();
 }
 
 function changeLevel(size, mines, lives) {
