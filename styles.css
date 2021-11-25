@@ -1,0 +1,158 @@
+*{
+font-family: cursive;
+}
+
+body{
+   background-color: rgb(202, 172, 115);
+   text-align: center;
+   margin: 0;
+}
+
+.header{
+background-color:wheat;
+}
+
+.difficulty{
+   text-align: center;
+   line-height: 70px;
+   vertical-align:middle;
+   height: 70px;
+   width: px;
+   margin: auto;
+}
+
+.difficulty p{
+   display: inline-block;
+   margin: 0 10px;
+   font-size: 1.2rem;
+}
+
+.diff{
+   background-color: rgb(202, 172, 115);
+   border:ridge rgb(73, 73, 73);
+   margin: 7px;
+   width: 65px;
+   height: 30px;
+   font-size: 0.8rem;
+   padding: 3px;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.diff:hover{
+   background-color: rgba(202, 172, 115,0.7);
+}
+
+.costum{
+   width: 75px;
+}
+
+#costum-mines{
+font-size: 0.7rem;
+margin: 0;
+display: none;
+}
+
+h1{
+   font-family: cursive;
+   text-align: center;
+   font-size: 3.5rem;
+   display: inline-block;
+   margin: 20px auto;
+}
+
+table{
+   margin: 30px auto;
+   border-radius: 4px;
+   border: rgb(0, 0, 0) 5px double;
+}
+
+td{
+   border-radius: 4px;
+   background-color: wheat;
+}
+
+.features{
+   margin-bottom: 2.5px;
+}
+
+.features td{
+   width: 80px;
+   height: 30px;
+   text-align: center;
+   vertical-align: middle;
+   line-height: 30px;
+   font-size: 1.2rem;
+   cursor:default;
+}
+
+.features2{
+   margin-top: 2.5px;
+}
+
+.features2 td{
+   font-size:1.1rem;
+   padding: 2px 4px;
+}
+
+#emojy{
+   width: 30px;
+   font-size: 22px;
+   cursor: pointer;
+}
+
+.board td{
+   min-width: 30px;
+   height: 30px;
+   font-size: 1.2rem;
+   cursor: pointer;
+}
+
+.board td:hover{
+   opacity: 0.7;
+}
+   
+.hidden{
+   background-color: black;
+   color: rgba(0, 0, 0, 0);
+}
+
+.revealed-mine{
+   opacity: 0.3;
+}
+
+.safe-cell{
+   background-color: yellowgreen;
+}
+
+.safe-btn{
+   background-color: wheat;
+   border:ridge rgb(73, 73, 73);   margin: 10px;
+   width: 95px;
+   height: 50px;
+   font-size: 0.9rem;
+   font-weight: bold;
+   line-height: 17px;
+   padding: 3px;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.safe-btn:hover{
+   background-color: rgb(228, 203, 156);
+}
+
+.safe-btn span{
+font-size: 0.7rem;
+font-weight: normal;
+}
+
+   
+.flagged{
+color: black;
+}
+
+footer{
+   padding: 5%;
+   font-family:cursive;
+}

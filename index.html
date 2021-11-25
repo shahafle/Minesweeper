@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>Minesweeper</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body onload="initGame()">
+   <div class="header">
+      <!-- <p class="flag-count"> Remaining mines: <span></span></p>
+      <p class="timer"> Time: <span>0</span></p> -->
+      <h1>Minesweeper</h1>
+      <div class="difficulty">
+         <p>Difficulty:</p>
+         <button class="diff" onclick="changeLevel(4,2,2)">Begginer</button>
+         <button class="diff" onclick="changeLevel(8,12,3)">Medium</button>
+         <button class="diff" onclick="changeLevel(12,30,3)">Expert</button>
+         <button class="diff costum" onclick="costumMode()">🛠 Costum</button>
+         <p id="costum-mines">Mines placed: <span></span></p>
+      </div>
+   </div>
+
+   <table class="features">
+      <tr>
+         <td id="lives"></td>
+         <td id="emojy" onclick="restart()"></td>
+         <td id="hints">📡📡📡</td>
+      </tr>
+   </table>
+   <table class="features2">
+      <tr>
+         <td class="flag-count"> Remaining mines: <span></span></td>
+         <td class="timer"> Time: <span>0</span></td>
+      </tr>
+   </table>
+   <table>
+      <tbody class="board">
+
+      </tbody>
+   </table>
+
+
+   <button class="safe-btn" onclick="getSafeCell()">Safe Click <span>(3)</span></button>
+
+
+   <footer>© Shahaf Levi.</footer>
+
+   <script src="js/util.js"></script>
+   <script src="js/app.js"></script>
+   <script src="js/features.js"></script>
+</body>
+
+</html>
