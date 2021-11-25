@@ -74,11 +74,11 @@ function getSafeCell() {
    }, 1500, elSafeCell, randomCoord)
 }
 
-function costumMode() {
+function customMode() {
    restart();
-   gGame.costumMode = true;
-   document.querySelector('#costum-mines span').innerText = '0/' + gLevel.MINES;
-   document.querySelector('#costum-mines').style.display = 'inline-block';
+   gGame.customMode = true;
+   document.querySelector('#custom-mines span').innerText = '0/' + gLevel.MINES;
+   document.querySelector('#custom-mines').style.display = 'inline-block';
 }
 
 function placeMine(location) {
@@ -88,21 +88,21 @@ function placeMine(location) {
    gMinesCoords.push(location);
 }
 
-function showCostumMine(location) {
+function showCustomMine(location) {
    var elCell = document.querySelector('#' + getIdName(location));
    elCell.classList.remove('hidden');
-   var costumHTML = gGame.costumMinesPlaced + '/' + gLevel.MINES;
-   document.querySelector('#costum-mines span').innerText = costumHTML;
+   var customHTML = gGame.customMinesPlaced + '/' + gLevel.MINES;
+   document.querySelector('#custom-mines span').innerText = customHTML;
 }
 
-function hideCostumMines() {
+function hideCustomMines() {
    setTimeout(() => {
       for (var i = 0; i < gMinesCoords.length; i++) {
          renderCell(gMinesCoords[i], true);
          var elCell = document.querySelector('#' + getIdName(gMinesCoords[i]));
          elCell.classList.add('hidden');
       }
-      document.querySelector('#costum-mines').style.display = 'none';
+      document.querySelector('#custom-mines').style.display = 'none';
    }, 300);
 }
 
@@ -124,7 +124,6 @@ function boom7Mode() {
 }
 
 function is7(num) {
-   // if (num === 14) debugger
    if ((num % 7) === 0) return true;
    var numStr = '' + num;
    for (var i = 0; i < numStr.length; i++) {

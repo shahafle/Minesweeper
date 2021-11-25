@@ -17,8 +17,8 @@ var gGame = {
    livesLeft: 2,
    hintsLeft: 3,
    hintMode: false,
-   costumMode: false,
-   costumMinesPlaced: 0,
+   customMode: false,
+   customMinesPlaced: 0,
    safeClicksLeft: 3,
    boom7Mode: false
 }
@@ -38,8 +38,8 @@ function initGame() {
       livesLeft: gLevel.LIVES,
       hintsLeft: 3,
       hintMode: false,
-      costumMode: false,
-      costumMinesPlaced: 0,
+      customMode: false,
+      customMinesPlaced: 0,
       safeClicksLeft: 3,
       boom7Mode: false
    }
@@ -53,12 +53,12 @@ function initGame() {
    updateHints();
    document.querySelector('.flag-count span').innerText = gLevel.MINES;
    document.querySelector('.timer span').innerText = 0;
-   document.querySelector('#costum-mines').style.display = 'none';
+   document.querySelector('#custom-mines').style.display = 'none';
    document.querySelector('.safe-btn span').innerText = '(' + gGame.safeClicksLeft + ')';
 }
 
 function start() {
-   if (!gGame.costumMode && !gGame.boom7Mode) placeMines(gBoard, gLevel.MINES);
+   if (!gGame.customMode && !gGame.boom7Mode) placeMines(gBoard, gLevel.MINES);
    gBoard = setMinesNegsCount(gBoard);
    renderBoard(gBoard);
    updateHints();
@@ -156,13 +156,13 @@ function renderCell(location, toClearCell = false) {
 
 function cellClicked(elCell, i, j) {
    var currCell = gBoard[i][j];
-   // Costum mode click to place a mine
-   if (gGame.costumMode && gGame.costumMinesPlaced < gLevel.MINES) {
+   // Custom mode click to place a mine
+   if (gGame.customMode && gGame.customMinesPlaced < gLevel.MINES) {
       placeMine({ i, j });
-      gGame.costumMinesPlaced++;
-      showCostumMine({ i, j });
+      gGame.customMinesPlaced++;
+      showCustomMine({ i, j });
       renderCell({ i, j });
-      if (gGame.costumMinesPlaced === gLevel.MINES) hideCostumMines();
+      if (gGame.customMinesPlaced === gLevel.MINES) hideCustomMines();
       return;
    }
 

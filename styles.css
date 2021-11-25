@@ -18,13 +18,13 @@ background-color:wheat;
    line-height: 70px;
    vertical-align:middle;
    height: 70px;
-   width: px;
-   margin: auto;
+   width: 550px;
+   margin: 0 auto;
 }
 
-.difficulty p{
+p{
    display: inline-block;
-   margin: 0 10px;
+   margin: auto;
    font-size: 1.2rem;
 }
 
@@ -32,7 +32,6 @@ background-color:wheat;
    background-color: rgb(202, 172, 115);
    border:ridge rgb(73, 73, 73);
    margin: 7px;
-   width: 65px;
    height: 35px;
    font-size: 0.8rem;
    padding: 3px;
@@ -44,11 +43,11 @@ background-color:wheat;
    background-color: rgba(202, 172, 115,0.7);
 }
 
-.costum{
+.custom{
    width: 75px;
 }
 
-#costum-mines{
+#custom-mines{
 font-size: 0.7rem;
 margin: auto 0;
 display: none;

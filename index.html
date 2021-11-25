@@ -9,17 +9,18 @@
 
 <body onload="initGame()">
    <div class="header">
-      <!-- <p class="flag-count"> Remaining mines: <span></span></p>
-      <p class="timer"> Time: <span>0</span></p> -->
       <h1>Minesweeper</h1>
-      <div class="difficulty">
+      <div class="btn-line">
          <p>Difficulty:</p>
          <button class="diff" onclick="changeLevel(4,2,2)">Begginer</button>
          <button class="diff" onclick="changeLevel(8,12,3)">Medium</button>
          <button class="diff" onclick="changeLevel(12,30,3)">Expert</button>
-         <button class="diff costum" onclick="costumMode()">🛠 Costum</button>
+      </div>
+      <div class="btn-line">
+         <p>Modes:</p>
+         <button class="diff custom" onclick="customMode()">🛠 Custom</button>
          <button class="diff" onclick="boom7Mode()">7💥</button>
-         <p id="costum-mines">Mines placed: <span></span></p>
+         <p id="custom-mines">Mines placed: <span></span></p>
       </div>
    </div>
 
