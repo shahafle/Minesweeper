@@ -19,6 +19,7 @@ var gGame = {
    hintMode: false,
    customMode: false,
    customMinesPlaced: 0,
+   isSafeClickOn: false,
    safeClicksLeft: 3,
    boom7Mode: false
 }
@@ -174,7 +175,7 @@ function cellClicked(elCell, i, j) {
       start();
       elCell = document.querySelector('#' + getIdName({ i, j }));
    }
-   if (!gGame.isOn || currCell.isMarked) return; // Don't let the user play after game is over
+   if (!gGame.isOn || currCell.isMarked || gGame.isSafeClickOn) return; // Don't let the user play after game is over or cell is flagged
 
    // cell clicked for hint
    if (gGame.hintMode) {
@@ -184,8 +185,6 @@ function cellClicked(elCell, i, j) {
       gGame.hintMode = false;
       if (gFirstCoord) return;
    }
-
-   // if (currCell.isMarked) return;
 
    if (!currCell.isMine) {
       if (!currCell.isShown) {

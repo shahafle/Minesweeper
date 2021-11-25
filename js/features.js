@@ -68,7 +68,9 @@ function getSafeCell() {
    var elSafeCell = document.querySelector('#' + getIdName(randomCoord));
    renderCell(randomCoord);
    elSafeCell.classList.replace('hidden', 'safe-cell');
+   gGame.isSafeClickOn = true;
    setTimeout(() => {
+      gGame.isSafeClickOn = false;
       elSafeCell.classList.replace('safe-cell', 'hidden');
       renderCell(randomCoord, true);
    }, 1500, elSafeCell, randomCoord)
