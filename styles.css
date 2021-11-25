@@ -1,5 +1,6 @@
 *{
-font-family: cursive;
+font-family:Helvetica, sans-serif;
+/* font-family: cursive; */
 }
 
 body{
@@ -32,7 +33,7 @@ background-color:wheat;
    border:ridge rgb(73, 73, 73);
    margin: 7px;
    width: 65px;
-   height: 30px;
+   height: 35px;
    font-size: 0.8rem;
    padding: 3px;
    border-radius: 5px;
@@ -49,7 +50,7 @@ background-color:wheat;
 
 #costum-mines{
 font-size: 0.7rem;
-margin: 0;
+margin: auto 0;
 display: none;
 }
 
@@ -98,6 +99,10 @@ td{
 #emojy{
    width: 30px;
    font-size: 22px;
+   cursor: pointer;
+}
+
+#hints{
    cursor: pointer;
 }
 

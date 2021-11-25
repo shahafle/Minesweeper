@@ -60,7 +60,7 @@ function start() {
    gBoard = setMinesNegsCount(gBoard);
    renderBoard(gBoard);
    updateHints();
-   // gTimerInterval = setInterval(timer, 1000);
+   gTimerInterval = setInterval(timer, 1000);
 }
 
 function buildBoard() {

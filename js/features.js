@@ -39,7 +39,7 @@ function updateHints() {
 function updateLives() {
    var livesStr = '';
    for (var i = 0; i < gGame.livesLeft; i++) {
-      livesStr += '💖';
+      livesStr += '❤';
    }
    document.querySelector('#lives').innerText = livesStr;
 }
